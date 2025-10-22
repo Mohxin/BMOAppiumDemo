@@ -2,4 +2,5 @@
 
 #Ignore vscode AI rules
 .github
+.codacy
 
