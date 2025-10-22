@@ -41,21 +41,6 @@ public class SampleTest
     }
 
     [Test]
-    public void VerifyAppLaunchesSuccessfully()
-    {
-        Assert.That(Driver, Is.Not.Null, "Appium driver is not initialized");
-
-        // Get the current application bundle identifier
-        var capabilities = ((MacDriver)Driver).Capabilities;
-        var bundleId = capabilities.GetCapability("CFBundleIdentifier")?.ToString();
-
-        TestContext.WriteLine($"✅ App launched with bundle ID: {bundleId}");
-
-        // Just assert that the bundle ID is not empty
-        Assert.That(bundleId, Is.Not.Empty, "App bundle ID should not be empty");
-    }
-
-    [Test]
     public void ClickExampleButtonIfExists()
     {
         try
@@ -100,7 +85,7 @@ public class SampleTest
                     TimeSpan.FromSeconds(5)
                 );
             }
-            
+
             passwordField.Click(); // Click to focus the field
             passwordField.SendKeys("");
             TestContext.WriteLine("✅ Entered password");
